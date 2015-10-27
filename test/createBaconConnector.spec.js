@@ -1,4 +1,4 @@
-import { createBaconConnector } from '../src/createBaconConnector';
+import createBaconConnector from '../src/createBaconConnector';
 import { createStore, combineReducers } from 'redux';
 import Bacon from 'baconjs';
 import TestUtils from 'react-addons-test-utils';
