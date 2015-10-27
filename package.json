@@ -1,10 +1,10 @@
 {
   "name": "redux-bacon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for attaching Bacon.js to Redux",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel src -d lib && mv lib/react.js .",
     "clean": "rimraf lib",
     "prepublish": "npm run clean && npm run build",
     "test": "mocha --compilers js:babel/register --recursive --require ./test/setup.js"

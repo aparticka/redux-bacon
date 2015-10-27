@@ -1,4 +1,4 @@
-import createBaconConnector from './createBaconConnector';
+import createBaconConnector from './lib/createBaconConnector';
 
 export {
   createBaconConnector
