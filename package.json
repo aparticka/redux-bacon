@@ -1,0 +1,46 @@
+{
+  "name": "redux-bacon",
+  "version": "1.0.0",
+  "description": "Utilities for attaching Bacon.js to Redux",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "clean": "rimraf lib",
+    "prepublish": "npm run clean && npm run build",
+    "test": "mocha --compilers js:babel/register --recursive --require ./test/setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aparticka/redux-bacon.git"
+  },
+  "keywords": [
+    "bacon",
+    "bacon.js",
+    "redux",
+    "react",
+    "react.js"
+  ],
+  "author": "Adam Particka <a.particka@gmail.com> (http://aparticka.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aparticka/redux-bacon/issues"
+  },
+  "homepage": "https://github.com/aparticka/redux-bacon",
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "babel-core": "^5.8.29",
+    "baconjs": "^0.7.78",
+    "chai": "^3.4.0",
+    "jsdom": "^7.0.2",
+    "mocha": "^2.3.3",
+    "react": "^0.14.0",
+    "react-addons-test-utils": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4",
+    "rimraf": "^2.4.3",
+    "sinon": "^1.17.2"
+  },
+  "dependencies": {
+    "react-bacon-component": "^1.0.5"
+  }
+}
