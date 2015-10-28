@@ -1,6 +1,6 @@
 {
   "name": "redux-bacon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utilities for attaching Bacon.js to Redux",
   "main": "lib/index.js",
   "scripts": {
@@ -41,6 +41,6 @@
     "sinon": "^1.17.2"
   },
   "dependencies": {
-    "react-bacon-component": "^1.0.5"
+    "react-bacon-component": "^1.1.0"
   }
 }
