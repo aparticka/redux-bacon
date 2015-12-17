@@ -5,6 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import { expect } from 'chai';
 import React from 'react';
+import { isProperty } from 'react-bacon-component';
 
 const actionCreators = {
   incrementBy: amount => ({ type: 'INCREMENT_BY', payload: amount })
@@ -64,4 +65,22 @@ describe('createBaconConnector', () => {
     const component = getRenderedComponentInContainer(Amount, AmountContainer, store);
     expect(component.props.pass).to.equal(undefined);
   });
+  it('should pass the correct argument types to selectState', () => {
+    let props, state, dispatch, context, componentHasMounted, selectStateAddSubscription = null;
+    const Container = createBaconConnector((propsP, stateP, dispatchP, contextP, componentHasMountedP, addSubscription) => {
+      props = propsP;
+      state = stateP;
+      dispatch = dispatchP;
+      context = contextP;
+      componentHasMounted = componentHasMountedP;
+      selectStateAddSubscription = addSubscription;
+    }, render);
+    getRenderedComponentInContainer(Amount, Container, store);
+    expect(isProperty(props)).to.equal(true);
+    expect(isProperty(state)).to.equal(true);
+    expect(isProperty(dispatch)).to.equal(true);
+    expect(isProperty(context)).to.equal(true);
+    expect(isProperty(componentHasMounted)).to.equal(true);
+    expect(typeof selectStateAddSubscription).to.equal('function');
+  })
 });

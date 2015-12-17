@@ -1,6 +1,7 @@
 import { propertyFromStore } from '../src/index';
 import { expect } from 'chai';
 import { spy } from 'sinon';
+import { isProperty } from 'react-bacon-component';
 
 function createStore() {
   let state;
@@ -23,7 +24,7 @@ describe('propertyFromStore', () => {
     const store = createStore();
     const property = propertyFromStore(store);
 
-    expect(typeof property.changes).to.equal('function');
+    expect(isProperty(property)).to.equal(true);
 
     const onValue = spy();
     property.onValue(onValue);

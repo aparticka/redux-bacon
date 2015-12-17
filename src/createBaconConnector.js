@@ -8,7 +8,7 @@ export default (selectState, render, shouldPassThroughProps = false) => {
       propsP,
       contextP.flatMap(
         c => propertyFromStore(c.store).startWith(c.store.getState())
-      ),
+      ).toProperty(),
       contextP.map(c => c.store.dispatch),
       contextP,
       componentHasMountedP,
