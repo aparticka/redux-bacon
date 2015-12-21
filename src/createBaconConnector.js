@@ -4,14 +4,14 @@ import { PropTypes } from 'react';
 
 export default (selectState, render, shouldPassThroughProps = false) => {
   const Connector = createBaconComponent(
-    (propsP, contextP, componentHasMountedP, addSubscription) => selectState(
+    (propsP, contextP, componentIsMountedP, addSubscription) => selectState(
       propsP,
       contextP.flatMap(
         c => propertyFromStore(c.store).startWith(c.store.getState())
       ).toProperty(),
       contextP.map(c => c.store.dispatch),
       contextP,
-      componentHasMountedP,
+      componentIsMountedP,
       addSubscription
     ),
     render, shouldPassThroughProps

@@ -66,13 +66,13 @@ describe('createBaconConnector', () => {
     expect(component.props.pass).to.equal(undefined);
   });
   it('should pass the correct argument types to selectState', () => {
-    let props, state, dispatch, context, componentHasMounted, selectStateAddSubscription = null;
-    const Container = createBaconConnector((propsP, stateP, dispatchP, contextP, componentHasMountedP, addSubscription) => {
+    let props, state, dispatch, context, componentIsMounted, selectStateAddSubscription = null;
+    const Container = createBaconConnector((propsP, stateP, dispatchP, contextP, componentIsMountedP, addSubscription) => {
       props = propsP;
       state = stateP;
       dispatch = dispatchP;
       context = contextP;
-      componentHasMounted = componentHasMountedP;
+      componentIsMounted = componentIsMountedP;
       selectStateAddSubscription = addSubscription;
     }, render);
     getRenderedComponentInContainer(Amount, Container, store);
@@ -80,7 +80,7 @@ describe('createBaconConnector', () => {
     expect(isProperty(state)).to.equal(true);
     expect(isProperty(dispatch)).to.equal(true);
     expect(isProperty(context)).to.equal(true);
-    expect(isProperty(componentHasMounted)).to.equal(true);
+    expect(isProperty(componentIsMounted)).to.equal(true);
     expect(typeof selectStateAddSubscription).to.equal('function');
   })
 });
